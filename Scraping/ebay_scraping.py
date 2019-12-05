@@ -13,7 +13,6 @@ Item = namedtuple("Item", "title price city date")
 
 items = []
 
-
 for item in soup.select(".aditem"):
     title = item.select_one(".ellipsis").text
     information = item.select_one(".aditem-details").text
@@ -21,7 +20,6 @@ for item in soup.select(".aditem"):
     information = information.split()
     print(information)
     price = information[0] + information[1] if information[0] != "VB" else information[0]
-
 
 #scraping all information regarding offers
 for item in soup.select(".aditem"):
