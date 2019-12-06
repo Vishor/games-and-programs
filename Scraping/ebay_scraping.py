@@ -13,14 +13,6 @@ Item = namedtuple("Item", "title price city date")
 
 items = []
 
-for item in soup.select(".aditem"):
-    title = item.select_one(".ellipsis").text
-    information = item.select_one(".aditem-details").text
-    information = information.strip()
-    information = information.split()
-    print(information)
-    price = information[0] + information[1] if information[0] != "VB" else information[0]
-
 #scraping all information regarding offers
 for item in soup.select(".aditem"):
     title = item.select_one(".ellipsis").text
@@ -47,7 +39,6 @@ for item in items:
 from datetime import date
 today = date.today()
 today = today.strftime("%d %B")
-print(today)
 
 #creating a file with results
 with open("Manga on Ebay - "+today+".txt", 'w') as fw:
